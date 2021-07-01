@@ -12,19 +12,19 @@
 #' @export
 #' @importFrom magrittr %>%
 #' @import ggplot2
-print_patterns <- function(pats, colgroups = NULL, n = 6, pat_type = "pat", title = "") {
+print_patterns <- function(pats, colgroups = NULL, n = 1:6, pat_type = "pat", title = "") {
   
   if (!is.null(colgroups)) {
     colgroups <- colgroups %>% dplyr::rename(chem = !!names(colgroups)[1])
   } else {
-    colgroups <- data.frame(chem = colnames(pats), group = "1")
+    colgroups <- data.frame(chem = rownames(pats), group = "1")
   }
   
   if (n > ncol(pats)) n <- ncol(pats)
   
   grouping <- names(colgroups)[2]
   
-  colnames(pats) <- paste0(pat_type, 1:ncol(pats))
+  colnames(pats) <- paste0(pat_type, stringr::str_pad(1:ncol(pats), width = 2, pad = "0", side = "left"))
   
   pats.df <- pats %>% 
     tibble::as_tibble() %>% 
@@ -35,7 +35,7 @@ print_patterns <- function(pats, colgroups = NULL, n = 6, pat_type = "pat", titl
   pats.df$chem <- factor(as.character(pats.df$chem), levels = unique(as.character(pats.df$chem)))
 
   loadings <- pats.df %>%
-    dplyr::filter(pattern %in% paste0(pat_type, 1:n)) %>%
+    dplyr::filter(pattern %in% paste0(pat_type, stringr::str_pad(n, width = 2, pad = "0", side = "left"))) %>%
     ggplot(aes(x = chem, y = loading, color = !!sym(grouping))) +
     geom_point() +
     geom_segment(aes(yend=0, xend = chem)) +
