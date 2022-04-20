@@ -10,7 +10,7 @@ get_pcp_defaults(mat)
 \item{mat}{The matrix for which the default lambda and mu are needed.}
 }
 \value{
-A list containing the default lambda and mu values, labelled as "lambda" and "mu" respectively.
+A list containing the default lambda and mu values used in most PCP functions, and the default eta value used in \code{\link{RRMC}}. labelled as "lambda", "mu", and "eta" respectively.
 }
 \description{
 \code{get_pcp_defaults} retrieves the default Root PCP lambda and mu parameter settings for a given matrix.
@@ -26,6 +26,6 @@ mat <- data$M
 
 # get the default PCP parameters:
 default <- get_pcp_defaults(mat)
-default.lambda <- default$lambda
-default.mu <- default$mu
+default_lambda <- default$lambda
+default_mu <- default$mu
 }

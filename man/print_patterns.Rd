@@ -4,7 +4,7 @@
 \alias{print_patterns}
 \title{Prints a matrix of patterns in a PCA-loadings-style plot.}
 \usage{
-print_patterns(pats, colgroups = NULL, n = 6, pat_type = "pat", title = "")
+print_patterns(pats, colgroups = NULL, n = 1:6, pat_type = "pat", title = "")
 }
 \arguments{
 \item{pats}{A matrix of patterns where each pattern is in a different column.}
