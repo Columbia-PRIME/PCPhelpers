@@ -4,7 +4,7 @@
 #' 
 #' @param mat The matrix for which the default lambda and mu are needed. 
 #'
-#' @return A list containing the default lambda and mu values, labelled as "lambda" and "mu" respectively.
+#' @return A list containing the default lambda and mu values used in most PCP functions, and the default eta value used in \code{\link{RRMC}}. labelled as "lambda", "mu", and "eta" respectively.
 #' @examples
 #'
 #' # simulate a data matrix:
@@ -16,14 +16,14 @@
 #'
 #' # get the default PCP parameters:
 #' default <- get_pcp_defaults(mat)
-#' default.lambda <- default$lambda
-#' default.mu <- default$mu
+#' default_lambda <- default$lambda
+#' default_mu <- default$mu
 #' @export
 get_pcp_defaults <- function(mat) {
 	n <- nrow(mat)
 	p <- ncol(mat)
 	l <- 1/sqrt(max(n, p))
 	m <- sqrt(min(n, p)/2)
-
-	list(lambda = l, mu = m)
+	e <- l / m
+	list(lambda = l, mu = m, eta = e)
 }

@@ -89,7 +89,8 @@ eda <- function(
           strip.background = element_rect(fill = "white"),
           axis.title.x = element_blank(),
           axis.title.y = element_blank()) +
-    geom_hline(yintercept = 0, size = 0.2) + ggtitle("Principle Component Loadings")
+    geom_hline(yintercept = 0, size = 0.2) + 
+    ggtitle("Principle Component Loadings")
   
   #### BIPLOT ####
   if (is.null(rowgroups)) {
@@ -105,20 +106,20 @@ eda <- function(
                      loadings = TRUE, loadings.colour = 'black',
                      loadings.label = TRUE, loadings.label.repel = T, 
                      loadings.label.size = 2.5, loadings.label.colour = 'black',
-                     main = "Principal Component Analysis Biplot")
+                     main = "Principal Component Analysis Biplot") + theme_bw()
   
   if ("PC3" %in% plot_loadings_pca$PC) {
     biplot2 <- autoplot(pca.ln, x = 1, y = 3, data = bp.m, size = 0.8, colour = rowgroups_name, frame = frame, alpha = 0.5,
                         loadings = TRUE, loadings.colour = 'black',
                         loadings.label = TRUE, loadings.label.repel = T, 
                         loadings.label.size = 2.5, loadings.label.colour = 'black',
-                        main = "Principal Component Analysis Biplot")
+                        main = "Principal Component Analysis Biplot") + theme_bw()
     
     biplot3 <- autoplot(pca.ln, x = 2, y = 3, data = bp.m, size = 0.8, colour = rowgroups_name, frame = frame, alpha = 0.5,
                         loadings = TRUE, loadings.colour = 'black',
                         loadings.label = TRUE, loadings.label.repel = T, 
                         loadings.label.size = 2.5, loadings.label.colour = 'black',
-                        main = "Principal Component Analysis Biplot")
+                        main = "Principal Component Analysis Biplot") + theme_bw()
     
   } else {
     biplot2 <- NULL

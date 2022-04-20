@@ -1,4 +1,3 @@
-
 #' Corrupts a data matrix by knocking out a random specified percentage of entries.
 #'
 #' \code{corrupt_mat_randomly} corrupts a given data matrix by knocking out a random
