@@ -98,7 +98,7 @@ search_results <- vanilla_search(mat, pcp_func = root_pcp_na, grid_df = param_gr
 
 # visualize the output:
 
-print_gs(search_results$summary_stats)
+print_gs2(search_results$summary_stats)
 }
 \seealso{
 Older versions of PCP's gridsearch (not recommended): \code{\link{grid_search_cv}}, \code{\link{random_search_cv}}, \code{\link{bayes_search_cv}}, and \code{\link{print_gs}}

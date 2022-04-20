@@ -1,7 +1,7 @@
 Package: PCPhelpers
 Type: Package
 Title: Provides a bunch of functions to help with PCP experimentation.
-Version: 0.3.5
+Version: 0.4.0
 Author: Lawrence Chillrud
 Maintainer: Lawrence Chillrud <lgc2139@cumc.columbia.edu>
 Description: Provides a bunch of functions I frequently use to help with PCP-related experiments. These will probably help people who are more concerned with the simulation side of things. The documentation is decent so check out the various man pages!
@@ -9,4 +9,4 @@ License:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Imports: magrittr, tidyselect, dplyr, tidyr, stringr, purrr, tibble, pracma, Matrix, foreach, iterators, parallel, snow, doSNOW, GPfit, ggplot2, heatmaply, GGally, kableExtra, CVXR
+Imports: magrittr, tidyselect, dplyr, tidyr, stringr, purrr, furrr, tibble, pracma, Matrix, foreach, iterators, parallel, future, progressr, snow, doSNOW, GPfit, ggplot2, heatmaply, GGally, kableExtra, CVXR
